@@ -14,9 +14,11 @@ if [[ ${sallary} =~ ^[0-9]+$ ]]
   	if [ ${sallary} -lt 5000 ]; then
  	 echo "При зарплате ${sallary} налог не взымается"
  	elif [ ${sallary} -ge 5000 ] && [ ${sallary} -le 30000 ]; then
-	 echo "При зарплате ${sallary} налог 10%" 
+	echo -n "При зарплате ${sallary} налог 10% = "
+	echo `expr $sallary / 10` 
  	elif [ ${sallary} -gt 30000 ];then
-	 echo "При зарплате ${sallary} налог 20%"
+	echo -n "При зарплате ${sallary} налог 20% = "
+	echo `expr $sallary / 5`
  	fi
 else
   echo "Таких зарплат не бывает"
